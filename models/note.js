@@ -15,6 +15,13 @@ noteSchema.set('toObject', {
   }
 });
 
+noteSchema.methods.serialize = function() {
+  return {
+    id: this._id,
+    title: this.title
+  };
+};
+
 
 // Add `createdAt` and `updatedAt` fields
 noteSchema.set('timestamps', true);
