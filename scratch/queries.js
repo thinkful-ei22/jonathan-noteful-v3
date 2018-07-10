@@ -11,7 +11,7 @@ const Note = require('../models/note');
 //     let filter = {};
 
 //     if (searchTerm) {
-//       filter.title = { $regex: searchTerm };
+//       filter = {$or: [ {title: {$regex: searchTerm}}, {content: {$regex: searchTerm}} ]};
 //     }
 
 //     return Note.find(filter).sort({ updatedAt: 'desc' });
