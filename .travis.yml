@@ -1,2 +1,10 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: c2z5jQ3RvFX7QoP6/SYrH5fOC39C29YFP0UkIsukp0AZRvEiI/3dqElXsmgJoE2G7zLJBYi9QZHG+ZPKPjlTKwsJO+F2VsP4sLrM840odJyxeDK5GmTzq42gZA2kbUoEAfOBt9YHC4N/4Mp5TErXh3ee4LBMgS4JoHr0w5UO2egpOXLtQz2jJRwG2DW8RMRbH74kD25JVmiQXhfiVF4wEFwT8bgI/zO4Rb9Zlo62LNM/ugvWf9h5vhkbkbUYMbO0+9TN94CqGU8yjo3INFfStdvwAf+jS/ZkYgdy8xcG30k7jHAtG4u/M+hD2pn7y3biz9eIc1FL+vWO7dJJsETDbnfq0fax9oZO+69ODdmknn6z+tzahu9w9qP9gd4EK2+OYEyEBENAs2CNxu9y+mNnZZp+bcXw4OEt+0FH8x2ub8Ib1fWRYBTEm/6aVt/HVXgtrOHdTMtpma89ASnwseI1qfJee2FOM/OLcp06jlycN7F4I9wRQNACEitbW4ElUeaXpm94+oGLGaFYmWMzoBpwsPXKSHiiS6VHZzMAEbSiLUYKpnuCgLFPmvNXh3LcbTxpWaHKzB4i9ckwbAeDKWE8c169YbVlqCekcEb45sWk9V+JZD/q/Y/GyefmP0cM/mOQzd7IEhDomdB+U2zHkn+fN5M2Sfm3DbjHVK55q3dipsI=
+  app: noteful-mongo-app
+  on:
+    repo: thinkful-ei22/jonathan-noteful-v3
+    branch: feature-branch
