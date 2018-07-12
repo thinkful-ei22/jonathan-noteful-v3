@@ -5,27 +5,27 @@ const { MONGODB_URI } = require('../config');
 
 const Note = require('../models/note');
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
-  .then(() => {
-    const searchTerm = 'cats';
-    let filter = {};
+// mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
+//   .then(() => {
+//     const searchTerm = 'cats';
+//     let filter = {};
 
-    if (searchTerm) {
-      filter = {$or: [ {title: {$regex: searchTerm}}, {content: {$regex: searchTerm}} ]};
-    }
+//     if (searchTerm) {
+//       filter = {$or: [ {title: {$regex: searchTerm}}, {content: {$regex: searchTerm}} ]};
+//     }
 
-    return Note.find(filter).sort({ updatedAt: 'desc' });
-  })    
-  .then(results => {
-    console.log(results);
-  })
-  .then(() => {
-    return mongoose.disconnect();
-  })
-  .catch(err => {
-    console.error(`ERROR: ${err.message}`);
-    console.error(err);
-  });
+//     return Note.find(filter).sort({ updatedAt: 'desc' });
+//   })    
+//   .then(results => {
+//     console.log(results);
+//   })
+//   .then(() => {
+//     return mongoose.disconnect();
+//   })
+//   .catch(err => {
+//     console.error(`ERROR: ${err.message}`);
+//     console.error(err);
+//   });
 
 // mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 //   .then(() => {
