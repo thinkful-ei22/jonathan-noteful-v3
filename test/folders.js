@@ -22,7 +22,8 @@ describe('Folderful API - Folders', function () {
   });
 
   beforeEach(function () {
-    return Folder.insertMany(seedFolders);
+    return Folder.insertMany(seedFolders)
+      .then(() => Folder.createIndexes());
   });
 
   afterEach(function () {
