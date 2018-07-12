@@ -1,11 +1,13 @@
 'use strict';
 
 const mongoose = require('mongoose');
-
 const { MONGODB_URI } = require('../config');
-const Note = require('../models/note');
 
+const Note = require('../models/note');
 const seedNotes = require('../db/seed/notes');
+
+const Folder = require('../models/folder');
+const seedFolders = require('../db/seed/folders');
 
 mongoose.connect(MONGODB_URI)
   .then(() => {
@@ -24,4 +26,14 @@ mongoose.connect(MONGODB_URI)
     console.error(`ERROR: ${err.message}`);
     console.error(err);
     db.disconnect();
+  });
+
+mongoose.connect(MONGODB_URI)
+  .then(() => mongoose.connection.db.dropDatabase())
+  .then(() => {
+    return Promise.all([
+      Note.insertMany(seedNotes),
+      Folder.insertMany(seedFolders),
+      Folder.createIndexes(),
+    ]);
   });
